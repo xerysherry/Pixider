@@ -85,15 +85,15 @@ pixider zip fav outfile fav.zip
 ```
 optional:  
 > nodown|nodownload: no dowload  
-> desc: will package
-> outfile: output file
+> desc: will package  
+> outfile: output file  
 
 * Help Desc
-> illust[illustid0][illustid1]..: Download Illustion
-> user[userid0][userid1]..: Download User's All Illustions
-> showu[page?]: Show current downloaded userlist
-> showi[userid][page?]: Show current downloaded user's illusts'
-> allfav: Download All Favourite
-> start: Check Bookmark new Illustions & new Favourite
-> loop: Loop
-> zip[user|fav][outfile file.zip][nodown|nodownload?][desc?]: Wrap a zip file
+> illust[illustid0][illustid1]..: Download Illustion  
+> user[userid0][userid1]..: Download User's All Illustions  
+> showu[page?]: Show current downloaded userlist  
+> showi[userid][page?]: Show current downloaded user's illusts'  
+> allfav: Download All Favourite  
+> start: Check Bookmark new Illustions & new Favourite  
+> loop: Loop  
+> zip[user|fav][outfile file.zip][nodown|nodownload?][desc?]: Wrap a zip file  
