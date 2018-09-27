@@ -1,0 +1,26 @@
+{
+  "name": "pixider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/app.js",
+  "bin": {
+    "pixider": "./bin/shell"
+  },
+  "scripts": {
+    "loop": "node ./src/app.js loop",
+    "illust": "node ./src/app.js illust",
+    "user": "node ./src/app.js user",
+    "bookmark": "node ./src/app.js start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^3.0.0",
+    "cheerio": "^1.0.0-rc.2",
+    "colors.ts": "^1.0.20",
+    "request": "^2.88.0",
+    "tough-cookie": "^2.4.3",
+    "xlock": "^1.0.1",
+    "xulogger": "^1.0.3"
+  }
+}
