@@ -267,7 +267,7 @@ async function Shell()
         console.log(`    allfav: Download All Favourite`);
         console.log(`    start: Check Bookmark new Illustions & new Favourite`);
         console.log(`    loop: Loop`);
-        console.log(`    zip[user|fav][outfile file.zip][nodown|nodownload?][desc?]: `);
+        console.log(`    zip[user|fav][outfile file.zip][nodown|nodownload?][desc?]: Wrap a zip file`);
         console.log("    ex. pixider illust " + "40120582".green + " 41653575".green);
         console.log("    ex. pixider user " + "2103429".green);
         console.log("    ex. pixider showu " + "page".gray(5));
