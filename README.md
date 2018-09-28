@@ -78,6 +78,11 @@ If User's illust list is very big, you can use 'page'.
 pixider showi userid page
 ```
 
+* Logout
+```
+pixider logout
+```
+
 * Wrap a Zip file
 ```
 pixider zip user userid outfile user.zip
@@ -177,6 +182,12 @@ pixider showi userid
 ```
 pixider showi userid page
 ```
+
+* 登出
+```
+pixider logout
+```
+
 
 * 打包为ZIP包
 ```

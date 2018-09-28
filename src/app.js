@@ -260,6 +260,7 @@ async function Shell()
     if(!use_shell)
     {
         console.log(`Pixider. Get All ${"Pixiv".blue.underline} Image!!`);
+        console.log(`    login/logout:If you want exchange pixivid, use it`)
         console.log(`    illust[illustid0][illustid1]..: Download Illustion`);
         console.log(`    user[userid0][userid1]..: Download User's All Illustions`);
         console.log(`    showu[page?]: Show current downloaded userlist`);
