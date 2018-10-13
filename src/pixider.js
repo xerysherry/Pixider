@@ -173,10 +173,10 @@ function GetIllustInfo(illust_id)
 {
     return MEMBER_ILLUST + "?mode=medium&illust_id=" + illust_id;
 }
-function GetUserIllustList(user_id)
-{
-    return MEMBER_ILLUST + "?id=" + user_id;
-}
+// function GetUserIllustList(user_id)
+// {
+//     return MEMBER_ILLUST + "?id=" + user_id;
+// }
 function GetIllustManga(illust_id, page)
 {
     if(page == null)
@@ -514,48 +514,69 @@ async function AcquireFavourite(all)
 
     }
 }
+// async function DownloadUserIllusts(userid, linkpath)
+// {
+//     var url = GetUserIllustList(userid);
+//     var page = null;
+
+//     while(true)
+//     {
+//         await Request(url, (err, resp, body)=>{
+//             if(!err)
+//                 page = body;
+//         });
+//         if(page == null)
+//             return;
+        
+//         var $ = cheerio.load(page);
+//         var ul = $("ul[class=_image-items]");
+//         if(ul == null || ul.length == 0)
+//             return;
+//         var illust_list = ul.find("li");
+//         if(illust_list == null || illust_list.length == 0)
+//             return;
+        
+//         //Download Illust
+//         for(var i=0; i<illust_list.length; ++i)
+//         {
+//             var uri = illust_list[i].children[0].attribs.href;
+//             var sign = uri.lastIndexOf('=');
+//             if(sign < 0)
+//                 continue;
+//             var illustid = uri.substr(sign+1);
+//             await DownloadIllust(illustid, linkpath);
+//         }
+
+//         var span = $("span[class=next]");
+//         if(span == null)
+//             return;
+//         var a = span.find("a");
+//         if(a == null || a.length == 0)
+//             return;
+
+//         var nexturi = a[0].attribs.href;
+//         url = MEMBER_ILLUST + nexturi;
+//     }
+// }
+function GetUserIllustList(user_id)
+{
+     return HOME_PAGE + "/ajax/user/" + user_id + "/profile/all";
+}
 async function DownloadUserIllusts(userid, linkpath)
 {
     var url = GetUserIllustList(userid);
     var page = null;
 
-    while(true)
-    {
-        await Request(url, (err, resp, body)=>{
-            if(!err)
-                page = body;
-        });
-        if(page == null)
-            return;
-        
-        var $ = cheerio.load(page);
-        var ul = $("ul[class=_image-items]");
-        if(ul == null || ul.length == 0)
-            return;
-        var illust_list = ul.find("li");
-        if(illust_list == null || illust_list.length == 0)
-            return;
-        
-        //Download Illust
-        for(var i=0; i<illust_list.length; ++i)
-        {
-            var uri = illust_list[i].children[0].attribs.href;
-            var sign = uri.lastIndexOf('=');
-            if(sign < 0)
-                continue;
-            var illustid = uri.substr(sign+1);
-            await DownloadIllust(illustid, linkpath);
-        }
+    await Request(url, (err, resp, body) => {
+        if (!err)
+            page = body;
+    });
+    if (page == null)
+        return;
 
-        var span = $("span[class=next]");
-        if(span == null)
-            return;
-        var a = span.find("a");
-        if(a == null || a.length == 0)
-            return;
-
-        var nexturi = a[0].attribs.href;
-        url = MEMBER_ILLUST + nexturi;
+    var json = JSON.parse(page);
+    for (var illust in json.body.illusts) {
+        await DownloadIllust(illust, linkpath);
     }
 }
 /**
